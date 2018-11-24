@@ -3,11 +3,17 @@ Example filters for Pied-Piperline
 
 ### Text Filters:
  **Translation** – stress-free inplace messages translation
+ 
  **Summarization** - Do not waste your time on reading gigantic posts. Get only important imformation
+ 
  **Meduza Articles** - Extract arcticles from links from popular russian news web-site
+ 
  **Buzzfeed Article** - Extract english article from all-know information source
+ 
  **Censore** - Automaticly censor unpleasent information in your group chats
+ 
  **Text classification** – Quick and easy way to obtain tags fot your posts
+ 
  **Name Entity Recognition** – Use machine learning to get named entities from message and search for there defenitions in Wikipedia instantly
 
 ### Image filters

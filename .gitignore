@@ -1,0 +1,16 @@
+# Extensions
+*.gif
+*.paw
+
+# Cached
+__pycache__
+
+# Notebooks
+.ipynb_checkpoints
+
+# Service keys
+datatopia-filters-d18becbfa8f5.json
+
+# Media
+media
+pics

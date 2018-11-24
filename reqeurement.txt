@@ -1,0 +1,10 @@
+flask
+google-cloud-language
+google-cloud-translate
+google-cloud-vision
+bs4
+requests
+wikipedia
+wikipedia-api
+langdetect
+filetype

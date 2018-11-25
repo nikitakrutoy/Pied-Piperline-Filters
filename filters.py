@@ -13,6 +13,9 @@ from google.cloud import language
 from google.cloud import vision
 from google.cloud.language import enums
 from google.cloud.language import types
+from google.cloud import speech
+# from google.cloud.speech import enums
+# from google.cloud.speech import types
 from google.api_core.exceptions import InvalidArgument
 
 # Language tools
@@ -232,6 +235,27 @@ def classify_text():
         return jsonify({"value": " ".join(categories) + '\n\n' + text}), 200
     except InvalidArgument:
         return jsonify({"value": text}), 200
+
+
+@app.route("/speech2text", methods=['POST'])
+def speech2text():
+    client = speech.SpeechClient()
+    voice_data = request.data
+    audio = speech.types.RecognitionAudio(content=voice_data)
+    config = speech.types.RecognitionConfig(
+        encoding=speech.enums.RecognitionConfig.AudioEncoding.LINEAR16, 
+        sample_rate_hertz=16000, 
+        language_code='en-US'
+    )
+
+    response = client.recognize(config, audio)
+    if response.results:
+        return jsonify({"values": response.results[0].alternatives[0].transcript})
+    else:
+        return jsonify({"values": "Could not recognize"})
+
+
+
 
 
 if __name__ == '__main__':

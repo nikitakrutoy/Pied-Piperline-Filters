@@ -99,7 +99,7 @@ def extract_buzzfeed():
     try:
         res = requests.get(url)
     except MissingSchema:
-        return jsonify({"value": "Вы отпривили не url!"}), 200
+        return jsonify({"value": "You send not url text!"}), 200
     bs = bs4.BeautifulSoup(res.text)
     title = bs.findAll("h1", attrs={"class": "news-article-header__title"})
     if title:
@@ -166,7 +166,7 @@ def censor():
     mystem_analyzer = Mystem()
     lang = detect_langs(text)[0].lang
     if lang not in ["ru", "en"]:
-        return jsonify({"value": "Your language is not supported"}), 200
+        return jsonify({"value": text}), 200
     cnsr = Censor().get(lang=lang)
     tokens = word_tokenize("".join(mystem_analyzer.lemmatize(text)))
     for i, token in enumerate(tokens):
@@ -244,7 +244,7 @@ def speech2text():
     audio = speech.types.RecognitionAudio(content=voice_data)
     config = speech.types.RecognitionConfig(
         encoding=speech.enums.RecognitionConfig.AudioEncoding.LINEAR16, 
-        sample_rate_hertz=16000, 
+        # sample_rate_hertz=16000, 
         language_code='en-US'
     )
 

@@ -1,5 +1,5 @@
 # Pied-Piperline-Filters
-Example filters for Pied-Piperline
+Example filters for [Pied-Piperline](https://github.com/Pied-Piperline)
 
 ### Text Filters:
  **Translation** – stress-free inplace messages translation
